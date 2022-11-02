@@ -26,17 +26,14 @@ int main()
     free(buff);
 
     printf("The program has been successfully completed!");
-
     return 0;
 }
 
 void fill_buff(unsigned short int* buff)
 {
-    buff[0] = 0;
-
-    for(int i = 1; i < BUFF_COUNT; i++)
+    for(int i = 0; i < BUFF_COUNT; i++)
     {
-        buff[i] = 52;
+        buff[i] = 052525;
     }
 }
 
@@ -46,10 +43,7 @@ void write_file(const char* filename, unsigned short int* buff)
 
     printf("Writing to file...\n");
 
-    for(int i = 0; i < BUFF_COUNT; i++)
-    {
-        fwrite(&buff[i], sizeof(unsigned short int), 1, fstream);
-    }
+    fwrite(buff, sizeof(unsigned short int), BUFF_COUNT, fstream);
 
     fclose(fstream);
 }
